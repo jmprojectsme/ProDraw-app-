@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f3460">
+  <meta name="description" content="ProDraw - A lightweight drawing app for electronics and Arduino drafting">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ProDraw">
+  <title>ProDraw App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <button id="menu-btn">☰</button>
+  <div id="active-tool-badge">✏️ Free Draw</div>
+
+  <div id="toolbar">
+    <h2>ProDraw</h2>
+
+    <div class="section-label">Brush Size</div>
+    <div class="range-row">
+      <input type="range" id="brushSize" min="1" max="80" value="5">
+      <span class="range-val" id="sizeVal">5</span>
+    </div>
+
+    <div class="section-label">Opacity</div>
+    <div class="range-row">
+      <input type="range" id="brushOpacity" min="0.05" max="1" step="0.05" value="1">
+      <span class="range-val" id="opacityVal">100%</span>
+    </div>
+
+    <div class="section-label">Color</div>
+    <input type="color" id="colorPicker" value="#e94560">
+
+    <div class="section-label">Texture / Brush</div>
+    <select id="texture">
+      <option value="normal">Normal</option>
+      <option value="soft">Soft (Airbrush)</option>
+      <option value="dotted">Dotted</option>
+      <option value="chalk">Chalk</option>
+    </select>
+
+    <div class="section-label">Shape Mode</div>
+    <select id="shape">
+      <option value="free">✏️ Free Draw</option>
+      <option value="line">╱ Line</option>
+      <option value="rect">▭ Rectangle</option>
+      <option value="ellipse">⬭ Ellipse / Circle</option>
+      <option value="triangle">△ Triangle</option>
+      <option value="arrow">➜ Arrow</option>
+    </select>
+
+    <div class="section-label">Fill Shape</div>
+    <select id="fillMode">
+      <option value="stroke">Outline Only</option>
+      <option value="fill">Fill Only</option>
+      <option value="both">Outline + Fill</option>
+    </select>
+
+    <div class="btn-grid">
+      <button class="tool" id="eraserBtn">🧹 Eraser</button>
+      <button class="tool" id="undoBtn">↩ Undo</button>
+      <button class="tool" id="redoBtn">↪ Redo</button>
+      <button class="tool" id="clearBtn">🗑 Clear</button>
+      <button class="tool" id="saveBtn">💾 Save</button>
+      <button class="tool" id="toggleMode">🌗 Mode</button>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+  <div id="shape-hint">Drag to draw shape</div>
+
+  <!-- PWA install prompt -->
+  <div id="install-banner">
+    <span>Install ProDraw as an app</span>
+    <button id="install-btn">Install</button>
+    <button id="install-dismiss">✕</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
